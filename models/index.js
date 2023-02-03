@@ -1,3 +1,3 @@
-const sequelize = require('../config/connection');
-const seedBlog = require('./blogData');
-const seedUserPostData = require('./userPostData');
+const Post = require('./Post');
+
+module.exports = { Post };

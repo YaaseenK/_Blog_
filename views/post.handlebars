@@ -1,10 +1,9 @@
-<div class="dish-card">
-  <div class="dish-card-header">
-    {{post_title}}
-  </div>
+<div class="card" style="width: 18rem;">
+
   <div class="card-body">
-    <p>
-      {{ post_context }}
-    </p>
+    <h5 class="card-title">Title: {{post_title}}</h5>
+    {{!-- <h6 class="card-subtitle mb-2 text-muted">{{post_author}}</h6> --}}
+    <p class="card-text">{{post_contents}}</p>
+
   </div>
 </div>
