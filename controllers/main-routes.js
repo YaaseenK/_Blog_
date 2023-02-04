@@ -45,6 +45,11 @@ router.get('/dashboard', async (req, res) => {
     res.render('dashboard', { posts });
 });
 
+router.get('/login', async (req, res) => {
+
+  res.render('login');
+})
+
 
 // Here is where we provide hardcoded data to render dynamically
 // const posts = [
