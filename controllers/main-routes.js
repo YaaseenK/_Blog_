@@ -5,6 +5,7 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 
+// Homepage route
 router.get('/', async (req, res) => {
   const postData = await Post.findAll().catch((err) => { 
       res.json(err);
@@ -16,6 +17,12 @@ router.get('/', async (req, res) => {
 
 // // get one post with serialized data
 router.get('/post/:id', async (req, res) => {
+   // IDs should only be numbers
+   if (!/^[0-9]+$/.test(req.params.id)) {
+    res.status(400).json("Error: Improper URL");
+
+    return;
+}
   try {
   // Search the database for a post with an id that matches params
   const postData = await Post.findByPk(req.params.id);
@@ -29,6 +36,14 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+// Dashboard
+router.get('/dashboard', async (req, res) => {
+  const postData = await Post.findAll().catch((err) => { 
+    res.json(err);
+  });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render('dashboard', { posts });
+});
 
 
 // Here is where we provide hardcoded data to render dynamically

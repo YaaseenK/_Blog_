@@ -1,9 +1,25 @@
-<div class="card" style="width: 18rem;">
 {{#each posts as |post|}}
+<div class="card" style="width: 18rem;">
+
   <div class="card-body">
     <h5 class="card-title">Title: {{post.post_title}}</h5>
     {{!-- <h6 class="card-subtitle mb-2 text-muted">{{post_author}}</h6> --}}
     <p class="card-text">{{post.post_contents}}</p>
+    <a href="/edit" class="card-link">Card link</a>
   </div>
+
+</div>
   {{/each}}
-</div
+
+<form class="new-post-form">
+  <div class="mb-3">
+    <label for="postTitle" class="form-label">Title:</label>
+    <input type="postTitle" class="form-control" id="post_title" placeholder="Article Title">
+  </div>
+  <div class="mb-3">
+    <label for="post_content" class="form-label">Article:</label>
+    <textarea class="form-control" id="post_content" rows="3"></textarea>
+  </div>
+  <button type="submit" value ="submit" id="newPostSbtn" class="btn btn-success">Post</button>
+</form>
+   <script src="/js/add-post.js"></script>

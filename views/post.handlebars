@@ -4,6 +4,24 @@
     <h5 class="card-title">Title: {{post_title}}</h5>
     {{!-- <h6 class="card-subtitle mb-2 text-muted">{{post_author}}</h6> --}}
     <p class="card-text">{{post_contents}}</p>
-
   </div>
+
 </div>
+  <h3>UPDATE POST:</h3>
+  <form class="edit-post-form">
+  <div class="mb-3">
+    <label for="postTitle" class="form-label">Title:</label>
+    <textarea type="postTitle" class="form-control" id="post_title" placeholder="Article Title"> 
+      {{post_title}}
+    </textarea>
+  </div>
+  <div class="mb-3">
+    <label for="post_contents" class="form-label">Article Content:</label>
+    <textarea class="form-control" id="post_contents" rows="3">
+      {{post_contents}}
+    </textarea>
+  </div>
+  <button type="submit" value ="submit" id="newPostSbtn" class="btn btn-success">Post</button>
+</form>
+   <script src="/js/edit-post.js"></script>
+
