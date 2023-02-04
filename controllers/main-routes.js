@@ -50,6 +50,11 @@ router.get('/login', async (req, res) => {
   res.render('login');
 })
 
+router.get('/sign-up', async (req, res) => {
+
+  res.render('signup');
+})
+
 
 // Here is where we provide hardcoded data to render dynamically
 // const posts = [
