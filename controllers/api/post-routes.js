@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
         {
           post_title: req.body.post_title,
           post_contents: req.body.post_contents,
-          usser_id: req.session.userId
+          user_id: req.session.userId
         },
         {
           where: {

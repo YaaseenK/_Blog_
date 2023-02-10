@@ -1,17 +1,19 @@
 <form class="sign-up-form" id="sign-up-form">
+    <div class="card text-center w-100 p-3">
   <div class="mb-3">
-    <label for="usernameInput" class="form-label">Username</label>
-    <input type="userName" class="form-control" id="usernameInput" aria-describedby="usernameHelp">
+    <label for="usernameInput" class="form-label ">Username</label>
+    <input type="userName" class="form-control" id="usernameInput" aria-describedby="usernameHelp" required>
   </div>
   <div class="mb-3">
     <label for="emailInput" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="passwordInput" class="form-label">Password</label>
-    <input type="password" class="form-control" id="passwordInput">
+    <input type="password" class="form-control" id="passwordInput" required>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
 </form>
  <script src="./js/signup.js"></script>

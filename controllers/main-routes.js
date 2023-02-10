@@ -45,7 +45,7 @@ router.get('/post/:id', async (req, res) => {
       },
       {
         model: Comment,
-        attributes:['text'],
+        
         order:[
           ['comment_date','ASC']
         ],
