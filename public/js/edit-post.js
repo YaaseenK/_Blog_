@@ -1,4 +1,4 @@
-    async function editFormHandler (event) {
+async function editFormHandler (event) {
         event.preventDefault();
 
         const post_title = document.getElementById('post_title').value;
@@ -24,6 +24,5 @@
         } else {
             alert('Failed to edit post', id);
         }
-        }
-        
-        document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+    }
+document.getElementById('newPostSbtn').addEventListener('submit', editFormHandler);
