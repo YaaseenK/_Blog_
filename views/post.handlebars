@@ -1,27 +1,43 @@
-<div class="card" style="width: 18rem;">
 
-  <div class="card-body">
-    <h5 class="card-title">Title: {{post_title}}</h5>
-    {{!-- <h6 class="card-subtitle mb-2 text-muted">{{post_author}}</h6> --}}
-    <p class="card-text">{{post_contents}}</p>
+<link rel="stylesheet" href="/css/comment.css">
+<form class="edit-post-form d-flex justify-content-center">
+  <div class="card text-center w-75 p-3" id="postID" data-post_id="{{id}}">
+    <div class="card-header  p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+        <strong> Title: {{post_title}} <br/> </strong>
+    </div>
+    <div class="card-body bg-info-subtle">
+      <h5 class="form-control border-success .text-dark-emphasi" id="post_contents">{{post_contents}}</h5>
+    </div>
+    <div class="card-header p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+        <strong> Author: {{user.username}} <br/> </strong>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
   </div>
-
-</div>
-  <h3>UPDATE POST:</h3>
-  <form class="edit-post-form">
-  <div class="mb-3">
-    <label for="postTitle" class="form-label">Title:</label>
-    <textarea type="postTitle" class="form-control" id="post_title" placeholder="Article Title"> 
-      {{post_title}}
-    </textarea>
-  </div>
-  <div class="mb-3">
-    <label for="post_contents" class="form-label">Article Content:</label>
-    <textarea class="form-control" id="post_contents" rows="3">
-      {{post_contents}}
-    </textarea>
-  </div>
-  <button type="submit" value ="submit" id="newPostSbtn" class="btn btn-success">Post</button>
 </form>
-   <script src="/js/edit-post.js"></script>
 
+<form action="" class="commentForm">
+    <div class="d-flex justify-content-center pt-3 pb-2"> 
+      <input type="text" name="text" id="commentText" placeholder="+ Add a comment" class="form-control addtxt">
+      <button id= "newPostBtn"class="btn btn-success" type="submit"> + Post Comment </button>
+    </div>
+</form>
+
+        {{#each comments as |comment|}}
+    <div class="container justify-content-center mt-5 border-left border-right">
+    <div class="d-flex justify-content-center py-2">
+        <div class="second py-2 px-2"> <span class="text1">{{comment.text}}</span>
+            <div class="d-flex justify-content-between py-1 pt-2">
+                <div><img src="https://i.imgur.com/AgAC1Is.jpg" width="18"><span class="text2">{{user.username}}</span></div>
+                <div>
+                  <span class="text3">Upvote?</span>
+                <span class="thumbup"><i class="fa fa-thumbs-o-up"></i>
+                </span><span class="text4">3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        {{/each}}
+
+  <script src="/js/comment.js"></script>

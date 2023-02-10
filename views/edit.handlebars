@@ -1,0 +1,20 @@
+
+<form class="edit-post-form d-flex justify-content-center">
+  <div class="card text-center w-75 p-3">
+    <div class="card-header p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+      <strong> Editing: {{post_title}}</strong>
+    </div>
+    <div class="card-body bg-info-subtle">
+      <textarea class="form-control border-success text-dark-emphasis" id="post_title">{{post_title}}</textarea>
+      <textarea class="form-control border-success .text-dark-emphasi" id="post_contents">{{post_contents}}</textarea>
+      <br/>
+      <h6 class="card-title">Author:  {{user.username}}</h6>
+    </div>
+    <button type="submit" value ="submit" id="newPostSbtn" class="btn btn-success">Update</button>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+</form>
+
+  <script src="/js/edit-post.js"></script>

@@ -1,14 +1,12 @@
 {{!-- {{#each posts as |post|}} --}}
-<div class="card" style="width: 18rem;">
-
-  <div class="card-body">
-    <a href="/post/{{id}}">
-      <h5 class="card-title">Title: {{post_title}}</h5>
-    </a>
-    {{!-- <h6 class="card-subtitle mb-2 text-muted">{{post_author}}</h6> --}}
-    <p class="card-text">{{post_contents}}</p>
+<a href="/post/{{id}}">
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title card-header p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">{{post_title}}</h5>
+      </a>
+      <p class="card-text border-success text-dark-emphasis">{{post_contents}}</p>
+    </div>
+        <h6 class="card-title card-header p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">Author:  {{user.username}}</h5>
   </div>
-
-</div>
   {{!-- {{/each}} --}}
 

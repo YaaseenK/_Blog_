@@ -1,5 +1,6 @@
     async function editFormHandler (event) {
         event.preventDefault();
+
         const post_title = document.getElementById('post_title').value;
         const post_contents = document.getElementById('post_contents').value;
 
@@ -21,7 +22,7 @@
         if (response.ok) {
             document.location.replace(`/post/${id}`);
         } else {
-            alert('Failed to edit dish', id);
+            alert('Failed to edit post', id);
         }
         }
         

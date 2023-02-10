@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Post = require('../../models/Post');
-
+const withAuth = require('../../utils/auth');
 
 // route to create/add a post
 router.post('/', async (req, res) => {
@@ -8,6 +8,7 @@ router.post('/', async (req, res) => {
       const postData = await Post.create({
         post_title: req.body.post_title,
         post_contents: req.body.post_contents,
+        user_id: req.session.userId
     });
     // if the post is successfully created, the new response will be returned as json
     res.status(200).json(postData)
@@ -25,6 +26,7 @@ router.post('/', async (req, res) => {
         {
           post_title: req.body.post_title,
           post_contents: req.body.post_contents,
+          usser_id: req.session.userId
         },
         {
           where: {
@@ -39,5 +41,27 @@ router.post('/', async (req, res) => {
       res.status(500).json(err)
     }
   });
+
+  router.delete("/:id", withAuth, async (req, res) => {
+    try {
+        const postData = await Post.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.userId
+            }
+        })
+
+        // If no post found matching post and user IDs return message
+        if (!postData) {
+            res.status(404).json({ message: "No post found with that ID" });
+            
+            return;
+        }
+
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
   module.exports = router;
